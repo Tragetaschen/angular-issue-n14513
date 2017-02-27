@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import { AlarmService } from './alarm.service';
+import { InstrumentAlarmService } from './instrument-alarm.service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -14,7 +17,9 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    { provide: AlarmService, useClass: InstrumentAlarmService }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
